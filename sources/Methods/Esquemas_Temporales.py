@@ -1,40 +1,38 @@
-from Problems.Funciones import F_Kepler
 from scipy.optimize import fsolve 
 
 #EULER
-def Euler(dt,U,N):
-      
-    for i in range(N):
-        U[:, i+1] = U[:,i] + dt * F_Kepler(U[:,i])
+def Euler(dt,U,F):
         
-    return U
+    return U + dt * F(U)
 
 # RUNGE KUTTA 4
 
-def RK4(dt,U,N):
+def RK4(dt,U,F):
+   
+    k1 = F( U )
+    k2 = F( U + dt * k1 / 2 )
+    k3 = F( U + dt * k2 /2 )
+    k4 = F( U + dt * k3 )
+
     
-    for i in range(N):
-        k1 = F_Kepler( U[:,i] )
-        k2 = F_Kepler( U[:,i] + dt * k1 / 2 )
-        k3 = F_Kepler( U[:,i] + dt * k2 /2 )
-        k4 = F_Kepler( U[:,i] + dt * k3 )
-
-        U[:, i+1] = U[:,i] + dt / 6 * (k1 +2*k2 +2*k3 +k4)  
-
-    return U
+    return U + dt / 6 * (k1 +2*k2 +2*k3 +k4)
 
 # CRANCK NICOLSON
-def CN( dt, U, N ):
+def CN( dt, U,F):
     
-    for i in range(N):
+    def CN_res(x):
+        
+        return x - U_temp -dt/2 * F(x)
 
-        def CN_res(x):
-            
-            return x - U_temp -dt/2 * F_Kepler(x)
+    U_temp = U + dt/2 * F(U)
 
-        U_temp = U[:,i] + dt/2 * F_Kepler(U[:,i])
+    return  fsolve(CN_res,U)
 
+#EULER IMPLICITO
+def In_Euler(dt, U, F):
 
-        U[:,i+1] = fsolve(CN_res,U[:,i])
+    def Euler_res(x):
 
-    return U 
+        return x - U - dt*F(x)
+
+    return fsolve(Euler_res, U)

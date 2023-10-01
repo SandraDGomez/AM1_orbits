@@ -1,7 +1,7 @@
 # Archivo que permite ejecutar todo.
 # Lo que vamos a hacer es importar las funciones del codigo Funciones.py
 from numpy import array, zeros 
-from Methods.Esquemas_Temporales import *
+from Methods.Esquemas_Temporales_MS_1 import *
 import matplotlib.pyplot as plt
 
 ## Datos iniciales
