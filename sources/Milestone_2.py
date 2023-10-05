@@ -26,7 +26,7 @@ for i in N:
     # (0,10,9) va desde 0 hasta la posicion 10 y esa posicion la divide entre 9 "trozos"
     # Aquí por tanto, es dividir t_n que vamos a ir obteniendo,t0=0, t1= 0.02, t2=..., t3=..., t999=T
 
-# Esquemas_T = [Euler, RK4, CN]
+# Esquemas_T = [Euler, RK4, CN].
 
 for key in t: 
     # Las key son las cosas que he definido en el diccionaro (la lista de N). 
