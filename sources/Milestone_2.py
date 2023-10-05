@@ -31,7 +31,7 @@ for i in N:
 for key in t: 
     # Las key son las cosas que he definido en el diccionaro (la lista de N). 
     # Lo que hago es que meto esa key, para cada caso que yo quiero (en este todas las  key)
-    # y se va a P_C con el vector t de esa K y me resuelve el metodo que le pido en concreto.
+    # y se va a P_C con el vector t de esa K y me resuelve el metodo que le pido en concreto.)
     U_Euler[str(key)] = P_C( U_0, t[key], F_Kepler, Euler)
     
 print('Euler done')
@@ -55,7 +55,7 @@ print('Inverse Euler done')
 
 ET_plots = ['Euler_plt', 'RK4_plt', 'CN_plt', 'Inv_Euler_plt'] #  Lista de los nombre de los futuros objetos de plotear que voy a crear
 U_plots = [U_Euler, U_RK4, U_CN, U_In_Euler] # lista con los resultados
-Titles = ['Euler Explícito', 'Runge Kutta 4', 'Crank Nicolson', 'Inversa de Euler'] # lista de los títulos
+Titles = ['Euler Explícito', 'Runge Kutta 4', 'Crank Nicolson', 'Euler Implícito'] # lista de los títulos
 
 i = 0
 for pintar in ET_plots:
