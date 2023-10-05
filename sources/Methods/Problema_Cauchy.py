@@ -1,6 +1,7 @@
 from numpy import zeros, array
 
 # P_C= Problema de Cauchy
+# Problema de condiciones inciales (valido para cualquier esquema temporal)
 
 def P_C( U_0, t, F, ET ):
     # U_0 vector inicializador, t= tiempo a estudiar,
@@ -17,9 +18,9 @@ def P_C( U_0, t, F, ET ):
     U[:, 0] = U_0 # definimos el valor inicial
 
     dt = t[2] - t[1]
-    for i in range (N):
+    for n in range (N):
         
-        U[:, i + 1] = ET(dt, U[:,i], F)
+        U[:, n + 1] = ET(dt, U[:,n], F)
          
     return U  
 
