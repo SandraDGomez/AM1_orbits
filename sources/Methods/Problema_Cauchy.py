@@ -4,18 +4,21 @@ from numpy import zeros, array
 # Problema de condiciones inciales (valido para cualquier esquema temporal)
 
 def P_C( U_0, t, F, ET ):
-    # U_0 vector inicializador, t= tiempo a estudiar,
+    
+    # U_0 vector inicializador, t= tiempo a estudiar (Milstone_2.py),
     # F= es la funcion, ET= esquema temporal
     
     ## Inicializacion de variables
-    N = len(t) - 1 # Se define aquí con la t (tiempo), donde t-1.
     
-    # Esto es así porque para hacer los pasos N, hay que tener en cuenta que se contabiliza
+    N = len(t) - 1 #Longitud de N saltos de pasos.
+    # Se define aquí con la t (tiempo), con t-1.
+    
+    # Para hacer los pasos N, hay que tener en cuenta que se contabiliza
     # desde el 0 hasta el T y se cuentan los "saltos".Ejm
-    # linspace (0,10,11) => [ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.] => Son 11 elementos y 10 "saltos (dts)"
+    # linspace (0,10,11) => [ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.] => Son 11 elementos y 10 "saltos (dts)".
     
-    U = zeros( (len(U_0), N+1)) # La longitud de U_0 para que sea generalista
-    U[:, 0] = U_0 # definimos el valor inicial
+    U = zeros( (len(U_0), N+1)) # Matriz inicial de ceros. La longitud de U_0 para que sea generalista.
+    U[:, 0] = U_0               # Definir el valor inicial.
 
     dt = t[2] - t[1]
     for n in range (N):

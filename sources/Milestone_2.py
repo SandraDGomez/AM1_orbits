@@ -28,10 +28,13 @@ for i in N:
 
 # Esquemas_T = [Euler, RK4, CN].
 
+##----------SOLUCION DE F KEPLER CON LOS ESQUEMAS TEMPORALES-------------
+
 for key in t: 
     # Las key son las cosas que he definido en el diccionaro (la lista de N). 
     # Lo que hago es que meto esa key, para cada caso que yo quiero (en este todas las  key)
-    # y se va a P_C con el vector t de esa K y me resuelve el metodo que le pido en concreto.)
+    # y se va a P_C con el vector t de esa  y me resuelve el metodo que le pido en concreto).
+    # key es del tipo string.
     U_Euler[str(key)] = P_C( U_0, t[key], F_Kepler, Euler)
     
 print('Euler done')
@@ -53,16 +56,27 @@ for key in t:
     
 print('Inverse Euler done')
 
-ET_plots = ['Euler_plt', 'RK4_plt', 'CN_plt', 'Inv_Euler_plt'] #  Lista de los nombre de los futuros objetos de plotear que voy a crear
-U_plots = [U_Euler, U_RK4, U_CN, U_In_Euler] # lista con los resultados
-Titles = ['Euler Explícito', 'Runge Kutta 4', 'Crank Nicolson', 'Euler Implícito'] # lista de los títulos
+## ----------------REPRESENTACION GRÁFICA DE LAS SOLUCIONES ESQUEMAS TEMPORALES-------------
+
+# 63-64 -> Lista con: objetos que se van a plotear, sus soluciones (U_plot) y los titulos de las graficas
+
+# Lista de los nombre de los futuros objetos de plotear que voy a crear
+ET_plots = ['Euler_plt', 'RK4_plt', 'CN_plt', 'Inv_Euler_plt'] 
+# Lista con los resultados
+U_plots = [U_Euler, U_RK4, U_CN, U_In_Euler] 
+# Lista de títulos
+Titles = ['Euler Explícito', 'Runge Kutta 4', 'Crank Nicolson', 'Euler Implícito'] 
+
+#Bucle que recorra todos los casos 
+#Pintar es un bucle para que represente los ET_plots, que para ello se creo un ET_plots previo
 
 i = 0
 for pintar in ET_plots:
+    
     fig, pintar = plt.subplots(figsize = (4,4)) # Creo el objeto desde la lista
-    # U = U_plots[]
+     
     for key in t:
-        dt = t[key][2] - t[key][1] # Se hace concatenacion. Es de la key en la que estés la posicon 2 - la 1.
+        dt = t[key][2] - t[key][1] # Se hace concatenacion. Es de la key en la que estés la posicion 2 -  1.
         pintar.plot(U_plots[i][key][0, : ], U_plots[i][key][1, : ], label = "dt = " + str(dt))
     
     pintar.set_xlabel('x')

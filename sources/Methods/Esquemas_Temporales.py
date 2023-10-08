@@ -17,6 +17,8 @@ def RK4(dt,U,F):
     
     return U + dt / 6 * (k1 +2*k2 +2*k3 +k4)
 
+##------------ESQUEMAS IMPLICITOS----------------------
+
 # CRANCK NICOLSON
 def CN(dt, U,F):
     
