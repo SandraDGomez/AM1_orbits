@@ -57,17 +57,17 @@ elif caso == "2":
         Pintar_Conver(log_N_euler, log_Er_euler, regress_euler,t[key][2]-t[key][1], 'Euler')
         print(f'Conv: Euler {key}')
         
-        # log_Er_RK4, log_N_RK4, regress_RK4 = Convergencia(U_0,t[key], F_Kepler, RK4, P_C) 
-        # Pintar_Conver(log_N_RK4, log_Er_RK4, regress_RK4,t[key][2]-t[key][1], 'RK4')
-        # print(f'Conv2: RK4 {key}')
+        log_Er_RK4, log_N_RK4, regress_RK4 = Convergencia(U_0,t[key], F_Kepler, RK4, P_C) 
+        Pintar_Conver(log_N_RK4, log_Er_RK4, regress_RK4,t[key][2]-t[key][1], 'RK4')
+        print(f'Conv2: RK4 {key}')
         
-        # log_Er_CN, log_N_CN, regress_CN = Convergencia(U_0,t[key], F_Kepler, CN, P_C)
-        # Pintar_Conver(log_N_CN, log_Er_CN, regress_CN,t[key][2]-t[key][1], 'CN') 
-        # print(f'Conv: CN {key}')
+        log_Er_CN, log_N_CN, regress_CN = Convergencia(U_0,t[key], F_Kepler, CN, P_C)
+        Pintar_Conver(log_N_CN, log_Er_CN, regress_CN,t[key][2]-t[key][1], 'CN') 
+        print(f'Conv: CN {key}')
         
-        # log_Er_In_Euler, log_N_In_Euler, regress_In_Euler = Convergencia(U_0,t[key], F_Kepler, In_Euler, P_C) 
-        # Pintar_Conver(log_N_In_Euler, log_Er_In_Euler, regress_In_Euler,t[key][2]-t[key][1], 'In_Euler')
-        # print(f'Conv: In_Euler {key}')
+        log_Er_In_Euler, log_N_In_Euler, regress_In_Euler = Convergencia(U_0,t[key], F_Kepler, In_Euler, P_C) 
+        Pintar_Conver(log_N_In_Euler, log_Er_In_Euler, regress_In_Euler,t[key][2]-t[key][1], 'In_Euler')
+        print(f'Conv: In_Euler {key}')
     
     plt.show()
     

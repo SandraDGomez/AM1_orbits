@@ -9,3 +9,11 @@ def F_Kepler(U):
     mr = (x**2 + y**2 )**1.5
     
     return array( [vx, vy, -x/mr, -y/mr])
+
+
+##PROBLEMA DEL OSCILADOR
+
+def Oscilador_Lineal(U,t):
+    
+    return array(U[1], -U[0])
+

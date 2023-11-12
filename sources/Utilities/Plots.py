@@ -41,7 +41,23 @@ def Pintar_Conver(x,y, regress,dt,ET):
     Conver.set_title(f'{ET} con dt = {dt} ')
     Conver.legend()
 
+def Pintar_Oscilador(OL, t, ET):
+    
+    fig, (OLx,OLy) = plt.subplots(2,1 figsize=(4,4))
+    colors = ['r','b','g'] 
+    dt = t[key][2]-t[key][1]
+    OLx.plot(t[key], OL[key][0,:], colors =colors[i], label = f'dt = {dt}')
+    OLy.plot(t[key], OL[key][1,:], colors =colors[i], label = f'dt = {dt}')
 
-
+    OLx.set_xlabel('t')
+    OLx.set_ylabel('x')
+    OLy.set_xlabel('t')
+    OLy.set_ylabel('y')
+    Er_x.set_title(f'Valor del oscilador {ET}')
+    Er_x.legend()
+    Er_y.legend()
+ 
+    plot.show()
+    
 
 

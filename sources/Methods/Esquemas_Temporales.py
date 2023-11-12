@@ -40,3 +40,9 @@ def In_Euler(dt, U, F):
         return x - U - dt*F(x)
 
     return fsolve(Euler_res, U)
+
+
+#LEAP-FROG
+def LeapFrog(dt, U, F):
+    
+    return U + 2*dt*F(U1)
