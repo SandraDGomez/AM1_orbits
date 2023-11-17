@@ -1,4 +1,5 @@
-from scipy.optimize import fsolve 
+from scipy.optimize import fsolve
+from Utilities.Solver import Newton 
 
 #EULER
 def Euler(dt,U,F):
@@ -30,7 +31,7 @@ def CN(dt, U,F):
 
     U_temp = U + dt/2 * F(U)
 
-    return  fsolve(CN_res,U)
+    return  Newton(CN_res,U)
 
 #EULER IMPLICITO
 def In_Euler(dt, U, F):
@@ -39,10 +40,10 @@ def In_Euler(dt, U, F):
 
         return x - U - dt*F(x)
 
-    return fsolve(Euler_res, U)
+    return Newton(Euler_res, U)
 
 
 #LEAP-FROG
-def LeapFrog(dt, U, F):
+def LeapFrog(dt, U, U1, F):
     
     return U + 2*dt*F(U1)

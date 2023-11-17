@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from numpy import sqrt 
+from numpy import sqrt, zeros, linspace
 
 def Pintar_error(Er, t, ET):
      #Er_todos representara todos los errores numericos que se obtienen para los diferentes dt
@@ -43,21 +43,47 @@ def Pintar_Conver(x,y, regress,dt,ET):
 
 def Pintar_Oscilador(OL, t, ET):
     
-    fig, (OLx,OLy) = plt.subplots(2,1 figsize=(4,4))
     colors = ['r','b','g'] 
-    dt = t[key][2]-t[key][1]
-    OLx.plot(t[key], OL[key][0,:], colors =colors[i], label = f'dt = {dt}')
-    OLy.plot(t[key], OL[key][1,:], colors =colors[i], label = f'dt = {dt}')
-
-    OLx.set_xlabel('t')
-    OLx.set_ylabel('x')
-    OLy.set_xlabel('t')
-    OLy.set_ylabel('y')
-    Er_x.set_title(f'Valor del oscilador {ET}')
-    Er_x.legend()
-    Er_y.legend()
- 
-    plot.show()
+    # pinturas = [f'{ET}_1',f'{ET}_2',f'{ET}_3']
+    fig, OL_x = plt.subplots(figsize=(4,4))
     
+    for i, key in enumerate(t): 
+           
+        
+        dt = t[key][2]-t[key][1]
+        OL_x.plot(t[key], OL[key][0,:], color =colors[i], label = f'dt = {dt}')
+        OL_x.set_xlabel('t')
+        OL_x.set_ylabel('x')
+        OL_x.set_title(f'Valor del oscilador {ET}')
+        OL_x.legend()
+
+def Pintar_SR(r, t, ET):
+    
+    SR_pintar = plt.figure(figsize = (10, 10))
+    if ET.__name__ == 'LeapFrog':
+        Im = linspace(-1,1,100)
+        Re = zeros(100)
+        
+        SR_pintar = plt.plot(Re, Im, color = '#0013ff')
+        
+    else:
+        N = len(r)
+        x = linspace(-5,5,N)
+        y = linspace(-5,5,N)
+        SR_pintar = plt.contour(x,y, r, levels = [0, 1], colors = ['#0013ff'])
+        SR_pintar = plt.contourf(x,y, r, levels = [0, 1], colors =['#626262'])
+
+    colors = ['r','orange','g']
+
+    for i, key in enumerate(t):
+        dt = t[key][2] - t[key][1] 
+        plt.plot([0,0], [dt,-dt], 'o', color = colors[i], label = "Oscilator's Roots by dt " + str(dt))
+    plt.ylabel("Im")
+    plt.xlabel("Re")
+    plt.title(f'Stability Region of {ET.__name__}')
+    plt.legend()
+    plt.grid()
+
+      
 
 

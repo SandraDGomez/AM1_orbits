@@ -20,10 +20,18 @@ def P_C( U_0, t, F, ET ):
     U = zeros( (len(U_0), N+1)) # Matriz inicial de ceros. La longitud de U_0 para que sea generalista.
     U[:, 0] = U_0               # Definir el valor inicial.
 
-    dt = t[2] - t[1]
-    for n in range (N):
-        
-        U[:, n + 1] = ET(dt, U[:,n], F)
+    if ET.__name__ == "LeapFrog":
+        for i in range(N):
+            dt = t[i+1]-t[i]
+            if t[i]==0:
+                U[:,1] = U[:,0] + dt*F(U[:,0])
+            else:
+                U[:,i+1] = ET(dt, U[:,i-1], U[:,i], F)    
+    else:   
+        dt = t[2] - t[1]
+        for n in range (N):
+            
+            U[:, n + 1] = ET(dt, U[:,n], F)
          
     return U  
 

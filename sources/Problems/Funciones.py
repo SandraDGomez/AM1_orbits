@@ -13,7 +13,7 @@ def F_Kepler(U):
 
 ##PROBLEMA DEL OSCILADOR
 
-def Oscilador_Lineal(U,t):
+def Oscilador_Lineal(U):
     
-    return array(U[1], -U[0])
+    return array([U[1], -U[0]])
 
