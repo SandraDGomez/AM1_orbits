@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from numpy import sqrt, zeros, linspace
+from numpy import sqrt, zeros, linspace, shape
 
 def Pintar_error(Er, t, ET):
      #Er_todos representara todos los errores numericos que se obtienen para los diferentes dt
@@ -84,6 +84,19 @@ def Pintar_SR(r, t, ET):
     plt.legend()
     plt.grid()
 
-      
-
-
+def Pintar_problemaNCuerpos(r,T, dt,ET):
+    
+    fig, ax = plt.subplots(figsize = (10,10))
+    ax = plt.axes(projection = '3d')
+    N = shape(r)[1]
+    
+    for i in range(N):
+        ax.plot(r[:,i,0], r[:,i,1], r[:,i,2], label = "Órbita " + str(i+1))
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('z')
+    ax.set_title(ET + "; T = " + str(T)+ "; dt =" + str(dt))
+    ax.legend()
+    ax.grid()
+    
+    
