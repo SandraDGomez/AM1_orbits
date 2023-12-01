@@ -4,13 +4,13 @@ from numpy import zeros, matmul
 # Runge Kutta Embebido: este codigo explica de manera numerica los conceptos
 # aplicados en clase. Que permite calcular un error utilizando diferentes N
 
-def RKE(U1 , dt, t, F):
+def RKE(dt, U1, t, F):
     RKE.__name__ = "RKE"
     
     tolerance = 1e-10
     
-    V1 = RKE("Primero", U1, t, dt, F)
-    V2 = RKE("Segundo", U1, t, dt, F)
+    V1 = RK("Primero", U1, t, dt, F)
+    V2 = RK("Segundo", U1, t, dt, F)
     
     (a, b, bs, c, q, Ne) = Butcher_array()
     
@@ -24,7 +24,7 @@ def RKE(U1 , dt, t, F):
     for i in range(N):
         tiempo = t + i * dt / N
         V1 = V2
-        V2 = RKE("Primero", V1, tiempo, h, F)
+        V2 = RK("Primero", V1, tiempo, h, F)
     
     U2 = V2
     
@@ -32,7 +32,7 @@ def RKE(U1 , dt, t, F):
     
     return U2
 
-def RKE(tag, U1, t, dt, F):
+def RK(tag, U1, t, dt, F):
     
     (a, b, bs, c, q, Ne) = Butcher_array()
     

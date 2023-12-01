@@ -8,7 +8,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "Milestone_5.py",
+            "program": "Milestone_6.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

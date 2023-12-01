@@ -1,6 +1,5 @@
 from numpy import array, linspace, zeros, size, shape, log10
 from numpy.linalg import norm
-from alive_progress import alive_bar #to see the progress of the computations
 from scipy.stats import linregress 
 
 def Richarson(U0, t1, F, ET, problema, orden):

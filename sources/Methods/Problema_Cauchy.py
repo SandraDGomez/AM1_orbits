@@ -26,7 +26,13 @@ def P_C( U_0, t, F, ET ):
             if t[i]==0:
                 U[:,1] = U[:,0] + dt*F(U[:,0])
             else:
-                U[:,i+1] = ET(dt, U[:,i-1], U[:,i], F)    
+                U[:,i+1] = ET(dt, U[:,i-1], U[:,i], F)  
+                
+    elif ET.__name__ == "RKE":   
+        
+        for n in range (N):
+            dt = t[n+1] - t[n]
+            U[:, n + 1] = ET(dt, U[:,n], t, F)  
     else:   
         dt = t[2] - t[1]
         for n in range (N):

@@ -5,7 +5,7 @@ def Jacobiano(F,xp):
     N = size(xp)
     dx = 1e-10
     
-    Jab = zeros([0,0])
+    Jab = zeros([N,N])
     for j in range(N):
         x = zeros(N)
         x[j] = dx

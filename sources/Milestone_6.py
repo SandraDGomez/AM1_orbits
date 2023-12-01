@@ -1,6 +1,7 @@
 from numpy import array, save, zeros, linspace, shape, reshape, around
 from Methods.Problema_Cauchy import P_C
 from Methods.RKEmbe_Esquema import RKE
+from Methods.Esquemas_Temporales import *
 from Problems.NBody import P_Lagrange, stb_Lp, RBP
 from Utilities.Plots import Pintar_ProblemaLagrange
 import matplotlib.pyplot as plt
@@ -54,8 +55,10 @@ for i in range( shape(U0)[0]):
 def F(U,t):
     return RBP(U,t, mu_T_M)
 
-for i in range(shape(U0)[0]):
-    U_LP = P_C(F,t, U_0LPO[i,:], ET[i])
-    Pintar_ProblemaLagrange(U_LP, L_p, mu_T_M, ET[i])
+
+for esquema in ET:
+    for i in range(shape(U0)[0]):
+        U_LP = P_C(U_0LPO[i,:], t, F,esquema)
+        Pintar_ProblemaLagrange(U_LP, L_p, mu_T_M, esquema.__name__,i)
 
 plt.show()
