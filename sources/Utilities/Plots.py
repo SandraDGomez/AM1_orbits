@@ -99,4 +99,30 @@ def Pintar_problemaNCuerpos(r,T, dt,ET):
     ax.legend()
     ax.grid()
     
+def Pintar_ProblemaLagrange(U, L_p, mu, j):
+    
+    LP = ["L4", "L5", "L3", "L1", "L2"]
+    
+    fig, ax =plt.subplots(figsize = (10,10))
+    
+    for i in range(len(L_p)):
+       ax.plot( L_p[i, 0],L_p[i, 1], 'o', label = LP[i] ) 
+    
+    ax.plot( U[0,:], U[1,:], color = 'b', label = "órbita" )
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('z')
+    ax.set_title("Puntos de Lagrange del sistema Tierra-Luna y su órbita alrededor" + LP[i])
+    ax.legend()
+    ax.grid()
+    
+    if LP[j] =="L4" or LP[j] =="L5":
+        fig, ay = plt.subplots(figsize = (7,7))
+        ay.plot( L_p[j, 0],L_p[j, 1], 'o', label = LP[j] )
+        ay.plot( U[0,:], U[1,:], color = 'b', label = "órbita"  )
+        ay.set_xlabel("x")
+        ay.set_ylabel("y")
+        ay.set_title("Órbita alrededor" + LP[j])
+        ax.legend()
+        ax.grid()
     
