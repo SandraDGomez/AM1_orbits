@@ -1,12 +1,11 @@
-REPOSITORIO AMPLIACION DE MATEMATICAS I, 
+# REPOSITORIO AMPLIACION DE MATEMATICAS I
 MASTER UNIVERSITARIO DE SISTEMAS ESPCIALES
 
-Nombre: Sandra Domínguez Gómez#
+Nombre: Sandra Domínguez Gómez
+### [------------DESCRIPCION REPOSITORIO------------------]
 
-###[------------DESCRIPCION REPOSITORIO------------------]
-El repositorio donde se han ido desarrollando los Milestone se encuentran en la carpeta:
 
-    - source
+El repositorio donde se han ido desarrollando los Milestone se encuentran en la carpeta: ### SOURCES.
 
 Dentro de la carpeta sources hay diferentes carpetas que se detallan a continuación:
 
