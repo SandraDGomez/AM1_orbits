@@ -13,25 +13,32 @@ Dentro de la carpeta sources hay diferentes carpetas que se detallan a continuac
 
 2) Methods: contiene toda la información relativa a:
 
-        - Esquemas temporales: Euler, Euler Implícito, Runge Kutta, Crank Nicolson y Leap Frog.
+        a) Esquemas temporales: Euler, Euler Implícito, Runge Kutta, Crank Nicolson y Leap Frog.
 
-        - Problema de Cauchy.
+        b) Problema de Cauchy.
 
-        - Runge Kutta embebido.
+        c) Runge Kutta embebido.
 
-        - Jacobiano.
+        d) Jacobiano.
 
 3) Problems: contiene la informacion para relsolver los problemas de:
-        - Función de Kepler.
-        - Problema del oscilador.
-        - Función de los N-Cuerpos.
-        - NBody.
+
+        a) Función de Kepler.
+        b) Problema del oscilador.
+        c) Función de los N-Cuerpos.
+        d) NBody.
+
+
 4) Stability_Region
+
 5) Utilities: dentro de esta carpeta se encuentra:
-        - Plots: permite graficar, de cada Milestone, los resultados.
-        - Solver.
+
+        a) Plots: permite graficar, de cada Milestone, los resultados.
+        b) Solver.
 6) Se encuentran todos los hitos.
+
 Los hitos están estructurados de la siguiente manera:
-        - Primero se importan todos los modulos y elementos matematicos que se emplearan.
-        - Se desarrolla el hito propiamente segun el contenido solicitado.
-        - Plotear las graficas.
+
+        1)Primero se importan todos los modulos y elementos matematicos que se emplearan.
+        2) Se desarrolla el hito propiamente segun el contenido solicitado.
+        3)Plotear las graficas.
