@@ -2,10 +2,10 @@
 MASTER UNIVERSITARIO DE SISTEMAS ESPCIALES
 
 Nombre: Sandra Domínguez Gómez
-### [------------DESCRIPCION REPOSITORIO------------------]
+### DESCRIPCION REPOSITORIO
 
 
-El repositorio donde se han ido desarrollando los Milestone se encuentran en la carpeta: ### SOURCES.
+El repositorio donde se han ido desarrollando los Milestone se encuentran en la carpeta:  SOURCES.
 
 Dentro de la carpeta sources hay diferentes carpetas que se detallan a continuación:
 
