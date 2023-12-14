@@ -1,2 +1,4 @@
-# AM1_orbits
-Sandra Domínguez Gómez
+REPOSITORIO AMPLIACION DE MATEMATICAS I, 
+MASTER UNIVERSITARIO DE SISTEMAS ESPCIALES
+
+Nombre: Sandra Domínguez Gómez
